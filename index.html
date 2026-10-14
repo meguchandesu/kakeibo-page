@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家計簿</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>家計簿</h1>
+  </header>
+
+  <main>
+    <section class="summary-card" aria-labelledby="total-heading">
+      <h2 id="total-heading">合計金額</h2>
+      <p><output id="total-amount" aria-label="合計金額">0</output> 円</p>
+    </section>
+
+    <section class="entry-card" aria-labelledby="entry-heading">
+      <h2 id="entry-heading">家計簿に登録</h2>
+      <form id="entry-form">
+        <p>
+          <label for="entry-date">日付</label>
+          <input type="date" id="entry-date" name="date" required>
+        </p>
+        <p>
+          <label for="entry-item">品目</label>
+          <input type="text" id="entry-item" name="item" required>
+        </p>
+        <fieldset>
+          <legend>支出・収入</legend>
+          <label>
+            <input type="radio" name="type" value="expense" checked>
+            支出
+          </label>
+          <label>
+            <input type="radio" name="type" value="income">
+            収入
+          </label>
+        </fieldset>
+        <p>
+          <label for="entry-amount">金額</label>
+          <span class="amount-field">
+            <input type="number" id="entry-amount" name="amount" min="1" step="1" required>
+            <span>円</span>
+          </span>
+        </p>
+        <button type="submit">追加</button>
+      </form>
+      <p id="app-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="list-card" aria-labelledby="list-heading">
+      <h2 id="list-heading">登録した内容</h2>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">日付</th>
+            <th scope="col">品目</th>
+            <th scope="col">区分</th>
+            <th scope="col">金額</th>
+          </tr>
+        </thead>
+        <tbody id="entry-list">
+          <tr>
+            <td colspan="4">登録されたデータはありません。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
