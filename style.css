@@ -1,0 +1,238 @@
+:root {
+  color-scheme: light;
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  color: #26384a;
+  background: #f4f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.6;
+}
+
+header {
+  padding: 24px max(28px, calc((100% - 1160px) / 2));
+  color: #fff;
+  background: #315f86;
+  border-bottom: 4px solid #c7e0f3;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "entry summary"
+    "entry list";
+  grid-template-columns: minmax(340px, 0.8fr) minmax(0, 1.2fr);
+  gap: 24px;
+  width: min(1160px, calc(100% - 48px));
+  margin: 36px auto;
+  align-items: start;
+}
+
+section {
+  min-width: 0;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid #dce7f0;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgb(39 76 109 / 5%);
+}
+
+.summary-card {
+  grid-area: summary;
+}
+
+.entry-card {
+  grid-area: entry;
+}
+
+.list-card {
+  grid-area: list;
+}
+
+h2 {
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  color: #315f86;
+  border-bottom: 1px solid #dce7f0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.summary-card p {
+  margin: 0;
+  color: #315f86;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+form p {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 10px 16px;
+  align-items: center;
+  margin: 0 0 20px;
+}
+
+form > p > label {
+  font-weight: 600;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #bdccda;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.amount-field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.amount-field input {
+  flex: 1;
+  min-width: 0;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #8fc2e8;
+  outline-offset: 2px;
+}
+
+fieldset {
+  display: flex;
+  gap: 24px;
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border: 1px solid #bdccda;
+  border-radius: 6px;
+}
+
+legend {
+  padding: 0 6px;
+  font-weight: 600;
+}
+
+fieldset label {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3979a8;
+}
+
+button {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 18px;
+  color: #fff;
+  background: #3979a8;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2d648e;
+}
+
+#app-status {
+  margin: 16px 0 0;
+  color: #315f86;
+}
+
+#app-status:empty {
+  display: none;
+}
+
+#app-status[data-state="error"] {
+  color: #a12622;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e2eaf1;
+}
+
+th {
+  color: #315f86;
+  background: #edf5fb;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+td[colspan] {
+  color: #657789;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  main {
+    grid-template-areas:
+      "entry"
+      "summary"
+      "list";
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100% - 32px, 560px);
+    margin: 24px auto;
+    gap: 16px;
+  }
+
+  section {
+    padding: 22px 18px;
+  }
+
+  header {
+    padding: 20px 16px;
+  }
+
+  .list-card {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 440px) {
+  form p {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
